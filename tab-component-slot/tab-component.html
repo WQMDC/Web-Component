@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab-template-slot</title>
+</head>
+
+<body>
+    <template id="tabs-template">
+        <style>
+            ul {
+                padding: 0;
+                list-style: none;
+            }
+        </style>
+        <ul>
+            <slot name="tab"></slot>
+        </ul>
+    </template>
+
+    <template id="tab-template">
+        <style>
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                font-size: 18px;
+                color: rgb(167, 164, 164);
+                cursor: pointer;
+                list-style: none;
+            }
+
+            li:last-child {
+                margin-right: 0;
+            }
+
+            li:hover {
+                color: #218ee7;
+                text-decoration: underline;
+            }
+        </style>
+        <li>
+            <slot name="menu">
+        <li></li>
+        </slot>
+        </li>
+    </template>
+
+    <tabs-component>
+        <tab-component slot="tab">
+            <span slot="menu">123</span>
+        </tab-component>
+        <tab-component slot="tab">
+            <span slot="menu">456</span>
+        </tab-component>
+    </tabs-component>
+
+</body>
+<script src="./tab-component.js"></script>
+
+</html>
